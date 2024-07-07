@@ -5,6 +5,7 @@ import userRouter from "./routes/user.routes.js"
 import bodyParser from "body-parser";
 import helmet from "helmet"
 import cors from "cors"
+import cookieparser from "cookie-parser"
 const app = express();
 
 app.use(express.json());
@@ -28,8 +29,9 @@ app.use(
     //origin access anywhere because set * all access
     Credential : true
 
-
 }))
+
+app.use(cookieparser());
 
 main()  
 .then((data) => console.log("DATABASE Connection successfully.." ,))
